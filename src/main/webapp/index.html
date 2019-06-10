@@ -14,11 +14,11 @@
 
 <body>
     <div class="login-page">
-        <div class="form">
+        <div class="form" method="POST" onsubmit="return loginSubmit()">
             <div class="title">AndreERP</div>
             <form class="login-form">
-                <input type="text" placeholder="login" />
-                <input type="password" placeholder="senha" />
+                <input id="login" type="text" placeholder="login" />
+                <input id="senha" type="password" placeholder="senha" />
                 <button>LOGIN</button>
             </form>
         </div>
