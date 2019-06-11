@@ -3,8 +3,8 @@ package projetoindividual.rest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-@Path("version")
-public class VersionReturn {
+@Path("about")
+public class About {
 
 	@GET
 	public String version() {

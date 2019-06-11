@@ -4,10 +4,10 @@ function loginSubmit() {
         senha: btoa($('#senha').val())
     };
 
-    $.post("login", dados,
+    $.post("app/login", JSON.stringify(dados),
         function(data, status) {
             window.location = data.url;
-        }
+        }, 'json'
     );
 
     return false;
