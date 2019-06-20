@@ -4,12 +4,15 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import projetoindividual.jdbc.Conexao;
+
 public class LoginDAO {
 
 	private Connection conexao;
 
-	public LoginDAO(Connection conexao) {
-		this.conexao = conexao;
+	public LoginDAO() {
+		Conexao c1 = new Conexao();
+		this.conexao = c1.abrirConexao();
 	}
 
 	public boolean validarLogin(String login, String senha) {

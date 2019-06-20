@@ -6,7 +6,7 @@ package projetoindividual.rest;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-@ApplicationPath("app")
+@ApplicationPath("api")
 public class RestSetup extends Application {
 	
 //	private Set<Class<?>> resources = new HashSet<>();

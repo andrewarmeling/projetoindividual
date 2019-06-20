@@ -5,7 +5,7 @@ function loginSubmit() {
     };
     
     $.ajax({
-    	url: 'app/login',
+    	url: 'api/login',
     	type: 'POST',
     	data: JSON.stringify(dados),
     	contentType: 'application/json; charset=utf-8',
