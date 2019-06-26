@@ -1,15 +1,15 @@
 $("#clientes").click(function() {
-    $("#page-content-wrapper").load("clientes")
+    $(".conteudo").load("clientes")
 })
 
 $("#cadastrosAuxiliares").click(function() {
-    $("#page-content-wrapper").load("cadastrosauxiliares")
+    $(".conteudo").load("cadastrosauxiliares")
 })
 
 $("#buscarOS").click(function() {
-    $("#page-content-wrapper").load("buscaros")
+    $(".conteudo").load("buscaros")
 })
 
 $("#ordemDeServico").click(function() {
-    $("#page-content-wrapper").load("ordemdeservico")
+    $(".conteudo").load("ordemdeservico")
 })

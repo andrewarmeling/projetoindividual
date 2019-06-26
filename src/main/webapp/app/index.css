@@ -1,67 +1,58 @@
-
-.sidebar-wrapper {
-    z-index: 10;
-    position: fixed;
-    width: 14rem;
-    height: 100%;
-    background: #222222;
+html,
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
-.sidebar-nav {
+.barra-lateral {
     position: absolute;
-    top: 0;
-    width: 100%;
-    margin: 0;
+    background: #222222;
     padding: 0;
+    text-indent: 1rem;
+}
+
+.menu-lateral {
     list-style: none;
-}
-
-.nav-bar-title {
-    display: block;
-    color: #dddddd;
-    font-size: 2rem;
-    text-align: center;
-    padding-top: 1rem;
-    width: 100%;
-}
-
-.sidebar-wrapper li {
-    text-indent: 1.5rem;
-    line-height: 3rem;
     font-size: 1.1rem;
+    padding: 0;
 }
 
-.sidebar-wrapper li a {
+.titulo-menu {
+    font-size: 2rem;
+    color: white;
+    /* text-indent: 2rem; */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.barra-lateral li {
+    line-height: 3rem;
+}
+
+.barra-lateral li a {
     display: block;
     text-decoration: none;
     color: #bcbcbc;
 }
 
-.sidebar-wrapper li a:hover,
-.sidebar-wrapper li a:active,
-.sidebar-wrapper li a:focus {
+.barra-lateral li a:hover {
     color: #222222;
-    background: #bcbcbc;
+    background-color: #bcbcbc;
 }
 
-.sidebar-footer {
+.menu-rodape {
+    list-style: none;
+    font-size: 1.1rem;
+    padding: 0;
     position: absolute;
     bottom: 0;
     width: 100%;
-    margin: 0;
-    padding: 0;
-    list-style: none;
 }
 
-.sidebar-footer li a:hover,
-.sidebar-footer li a:active,
-.sidebar-footer li a:focus {
-    background: red;
+.menu-rodape li a:hover {
     color: white;
+    background-color: red;
 }
 
-.page-content-wrapper {
-    position: absolute;
-/*     left: 14rem; */
-/*     margin: 3%; */
+.conteudo {
+    padding: 2rem;
 }

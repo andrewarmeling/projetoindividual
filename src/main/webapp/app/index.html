@@ -13,33 +13,36 @@
 </head>
 
 <body>
-    <div id="wrapper container-fluid">
-        <!-- Barra de Navegação Lateral -->
-        <div class="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <p class="nav-bar-title">AndreERP</p>
-                <li><a href="#">Início</a></li>
-                <li><a id="clientes" href="#">Clientes</a></li>
-                <li><a id="ordemDeServico" href="#">Ordem de Serviço</a></li>
-                <li><a id="buscarOS" href="#">Buscar OS</a></li>
-                <li><a id="cadastrosAuxiliares" href="#">Cadastros Auxiliares</a></li>
-            </ul>
-            <ul class="sidebar-footer">
-                <li><a href="#">Sair</a></li>
-            </ul>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Barra Lateral -->
+            <div class="col-sm-3 col-lg-2 h-100 barra-lateral">
+                <ul class="menu-lateral">
+                    <p class="titulo-menu">AndreERP</p>
+                    <li><a href="#">Início</a></li>
+                    <li><a id="clientes" href="#">Clientes</a></li>
+                    <li><a id="ordemDeServico" href="#">Ordem de Serviço</a></li>
+                    <li><a id="buscarOS" href="#">Buscar OS</a></li>
+                    <li><a id="cadastrosAuxiliares" href="#">Cadastros Auxiliares</a></li>
+                </ul>
+                <ul class="menu-rodape">
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </div>
+            <!-- Conteúdo Dinâmico (lado direito) -->
+            <div class="col-sm-9 col-lg-10 offset-sm-3 offset-lg-2 conteudo">
+                <!-- Conteúdo carregado de acordo com a aba selecionada -->
+            </div>
         </div>
-
-        <!--Conteúdo da Página-->
-        <div class="page-content-wrapper container-fluid" id="page-content-wrapper"></div>
     </div>
 
     <!-- Importações JS BootStrap -->
-    <script src="../lib/js/jquery-3.4.1.min.js"></script>
-    <script src="../lib/js/popper.min.js"></script>
-    <script src="../lib/js/bootstrap.min.js"></script>
+    <script src="../lib/js/jquery-3.4.1.min.js "></script>
+    <script src="../lib/js/popper.min.js "></script>
+    <script src="../lib/js/bootstrap.min.js "></script>
 
     <!-- Importações JS projeto -->
-    <script src="index.js"></script>
+    <script src="index.js "></script>
 </body>
 
 </html>
