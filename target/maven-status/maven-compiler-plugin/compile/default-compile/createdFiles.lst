@@ -1,0 +1,8 @@
+projetoindividual/login/LoginDAO.class
+projetoindividual/util/ConversorBase64.class
+projetoindividual/usuarios/Usuario.class
+projetoindividual/util/ConversorMD5.class
+projetoindividual/rest/RestSetup.class
+projetoindividual/login/LoginResource.class
+projetoindividual/rest/About.class
+projetoindividual/jdbc/Conexao.class
