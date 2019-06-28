@@ -1,14 +1,82 @@
 <link rel="stylesheet" href="index.css">
 
-<form>
-    <div class="form-row">
-        <div class="col-8">
-            <input type="email" class="form-control" placeholder="e-mail">
-        </div>
-        <div class="col-4">
-            <input type="password" class="form-control" placeholder="password">
-        </div>
-    </div>
+<form class="h-100" id="form">
+	<h1 class="text-center mb-5">Cadastro de Cliente</h1>
+
+	<div class="form-row">
+		<div class="form-group col">
+			<label for="cpf">CPF ou CNPJ</label>
+			<input type="text" class="form-control" id="cpf" placeholder="123.456.789/10">
+		</div>
+		<div class="form-group col">
+			<label for="id">ID do Cliente</label>
+			<input type="text" class="form-control" id="id" placeholder="ID">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col">
+			<label for="nome">Nome ou Razão Social</label>
+			<input type="text" class="form-control" id="nome" placeholder="Nome do Cliente">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col">
+			<label for="apelido">Apelido ou Nome Fantasia</label>
+			<input type="text" class="form-control" id="apelido" placeholder="Nome Fantasia, Apelido ou Nome Social">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col">
+			<label for="telefoneprincipal">Telefone Principal</label>
+			<input type="text" class="form-control" id="telefoneprincipal" placeholder="(99)123-456-789">
+		</div>
+		<div class="form-group col">
+			<label for="telefonesecundario">Telefone Secundário</label>
+			<input type="text" class="form-control" id="telefonesecundario" placeholder="(11)987-654-321">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col">
+			<label for="email">Endereço de e-mail</label>
+			<input type="email" class="form-control" id="email" placeholder="cliente@provedor.com">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-3">
+			<label for="cep">CEP</label>
+			<input type="text" class="form-control" id="cep" placeholder="88123-45">
+		</div>
+		<div class="form-group col-7">
+			<label for="cidade">Cidade</label>
+			<input type="text" class="form-control" id="cidade" placeholder="Cidade">
+		</div>
+		<div class="form-group col-2">
+			<label for="uf">UF</label>
+			<input type="text" class="form-control" id="uf" placeholder="UF">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-6">
+			<label for="endereco">Endereço/Logradouro</label>
+			<input type="text" class="form-control" id="endereco" placeholder="Endereço">
+		</div>
+		<div class="form-group col-3">
+			<label for="complemento">Complemento ou Número</label>
+			<input type="text" class="form-control" id="complemento" placeholder="123, Casa 4, Fundos">
+		</div>
+		<div class="form-group col-3">
+			<label for="bairro">Bairro</label>
+			<input type="text" class="form-control" id="bairro" placeholder="Bairro">
+		</div>
+	</div>
+	<div class="form-row mt-4">
+		<div class="form-group col-1">
+			<button type="button" class="btn btn-danger w-100">Excluir</button>
+		</div>
+		<div class="form-group col-1 offset-10">
+			<button type="button" class="btn btn-primary w-100" onclick="return clienteSubmit()">Salvar</button>
+		</div>
+	</div>
 </form>
 
-<script src="index.js"></script>
+<script src="clientes/index.js"></script>
