@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import com.sun.org.apache.xml.internal.security.c14n.helper.C14nHelper;
+
 import projetoindividual.jdbc.Conexao;
 
 public class LoginDAO {
@@ -27,7 +29,7 @@ public class LoginDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 		return false;
 	}
 	

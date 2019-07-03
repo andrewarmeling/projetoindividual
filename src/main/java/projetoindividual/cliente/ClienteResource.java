@@ -11,6 +11,7 @@ public class ClienteResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void cadastrarCliente(Cliente cliente) {
-		System.out.println(cliente.getCpf());
+		ClienteDAO dao = new ClienteDAO();
+		dao.inserirCliente(cliente);
 	}
 }
