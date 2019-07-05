@@ -70,14 +70,75 @@ public class ClienteDAO {
 			}
 
 			comando += ")" + comando2 + ");";
-			
+
 			Statement stmt = conexao.createStatement();
 			stmt.execute(comando);
-			
+
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	public Cliente buscarPorId(int id) {
+		try {
+			String comando = "SELECT * FROM clientes WHERE idcliente='" + id + "';";
+			Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+
+			Cliente cliente = new Cliente();
+
+			if (rs.next()) {
+				if (rs.getString("idcliente") != null) {
+					cliente.setId(rs.getString("idcliente"));
+				}
+				if (rs.getString("cpf") != null) {
+					cliente.setCpf(rs.getString("cpf"));
+				}
+				if (rs.getString("nome") != null) {
+					cliente.setNome(rs.getString("nome"));
+				}
+				if (rs.getString("apelido") != null) {
+					cliente.setApelido(rs.getString("apelido"));
+				}
+				if (rs.getString("telefonePrincipal") != null) {
+					cliente.setTelefonePrincipal(rs.getString("telefonePrincipal"));
+				}
+				if (rs.getString("telefoneSecundario") != null) {
+					cliente.setTelefoneSecundario(rs.getString("telefoneSecundario"));
+				}
+				if (rs.getString("email") != null) {
+					cliente.setEmail(rs.getString("email"));
+				}
+				if (rs.getString("cep") != null) {
+					cliente.setCep(rs.getString("cep"));
+				}
+				if (rs.getString("cidade") != null) {
+					cliente.setCidade(rs.getString("cidade"));
+				}
+				if (rs.getString("uf") != null) {
+					cliente.setUf(rs.getString("uf"));
+				}
+				if (rs.getString("endereco") != null) {
+					cliente.setEndereco(rs.getString("endereco"));
+				}
+				if (rs.getString("complemento") != null) {
+					cliente.setComplemento(rs.getString("complemento"));
+				}
+				if (rs.getString("bairro") != null) {
+					cliente.setBairro(rs.getString("bairro"));
+				}
+
+				return cliente;
+			}
+
+			return null;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
 	}
 }

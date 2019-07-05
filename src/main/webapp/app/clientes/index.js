@@ -23,7 +23,27 @@ function clienteSubmit() {
 		contentType: 'application/json; charset=utf-8',
 		dataType: 'json',
 		succes: function (data) {
-			alert(data)
+			alert(data);
 		}
 	});
+}
+
+function pesquisarId(){
+	var dados = {
+			id: $('#id').val()
+	}
+	
+	$.ajax({
+		url: '../api/clientes/',
+		type: 'GET',
+		data: dados,
+		contentType: 'application/json; charset=utf-8',
+		dataType: 'json',
+		success: function (data) {
+			$('#nome').val(data.nome);
+		},
+		error: function(data){
+			console.log(data);
+		}
+	})
 }
