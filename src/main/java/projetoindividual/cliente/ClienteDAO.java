@@ -3,6 +3,8 @@ package projetoindividual.cliente;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import projetoindividual.jdbc.Conexao;
 
@@ -201,6 +203,66 @@ public class ClienteDAO {
 			return null;
 		}
 
+	}
+	
+	public List<Cliente> buscarPorNome(String nome){
+		try {
+			String comando = "SELECT * FROM clientes WHERE nome LIKE '%" + nome + "%' or apelido like '%" + nome + "%';";
+			Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+
+			List<Cliente> listaDeClientes = new ArrayList<Cliente>();
+			while (rs.next()) {
+				Cliente cliente = new Cliente();
+				
+				if (rs.getString("idcliente") != null) {
+					cliente.setId(rs.getString("idcliente"));
+				}
+				if (rs.getString("cpf") != null) {
+					cliente.setCpf(rs.getString("cpf"));
+				}
+				if (rs.getString("nome") != null) {
+					cliente.setNome(rs.getString("nome"));
+				}
+				if (rs.getString("apelido") != null) {
+					cliente.setApelido(rs.getString("apelido"));
+				}
+				if (rs.getString("telefonePrincipal") != null) {
+					cliente.setTelefonePrincipal(rs.getString("telefonePrincipal"));
+				}
+				if (rs.getString("telefoneSecundario") != null) {
+					cliente.setTelefoneSecundario(rs.getString("telefoneSecundario"));
+				}
+				if (rs.getString("email") != null) {
+					cliente.setEmail(rs.getString("email"));
+				}
+				if (rs.getString("cep") != null) {
+					cliente.setCep(rs.getString("cep"));
+				}
+				if (rs.getString("cidade") != null) {
+					cliente.setCidade(rs.getString("cidade"));
+				}
+				if (rs.getString("uf") != null) {
+					cliente.setUf(rs.getString("uf"));
+				}
+				if (rs.getString("endereco") != null) {
+					cliente.setEndereco(rs.getString("endereco"));
+				}
+				if (rs.getString("complemento") != null) {
+					cliente.setComplemento(rs.getString("complemento"));
+				}
+				if (rs.getString("bairro") != null) {
+					cliente.setBairro(rs.getString("bairro"));
+				}
+				
+				listaDeClientes.add(cliente);
+			}
+			
+			return listaDeClientes;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public boolean excluirCliente(Cliente cliente) {

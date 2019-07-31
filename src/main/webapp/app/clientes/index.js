@@ -43,7 +43,7 @@ function incluirCliente() {
 			contentType: 'application/json; charset="utf-8"',
 			dataType: 'json',
 			success: function () {
-				console.log("sucesso ao cadastrar cliente");
+				$;
 			},
 			error: function() {
 				console.log("erro ao cadastrar cliente");
@@ -97,7 +97,26 @@ function buscarPorCpf() {
 }
 
 function buscarPorNome() {
-	console.log("função ainda não implementada!")
+	var dados = {
+			nome: $('#nome').val()
+	}
+	
+	$.ajax({
+		url: '../api/clientes/',
+		type: 'GET',
+		data: dados,
+		contentType: 'application/json; charset="utf-8"',
+		dataType: 'json',
+		success: function(dados) {
+			console.log("contatos trazidos com sucesso");
+			exibirModal(dados);
+			
+		},
+		error: function(){
+			console.log("erro ao buscar clientes");
+		}
+	});
+	
 }
 
 function excluirCliente() {	
@@ -147,6 +166,11 @@ function validarCamposNecessarios() {
 		$('#cpf').select();
 		return false;
 	};
+}
+
+function exibirModal(dados) {
+	$('#modal').load("clientes/modalBuscarCliente");
+	$('#modal').modal();
 }
 
 function limparFormulario() {

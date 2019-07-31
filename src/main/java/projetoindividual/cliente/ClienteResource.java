@@ -1,5 +1,8 @@
 package projetoindividual.cliente;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -34,7 +37,7 @@ public class ClienteResource {
 	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response buscarCliente(@QueryParam("id") String id, @QueryParam("cpf") String cpf) {
+	public Response buscarCliente(@QueryParam("id") String id, @QueryParam("cpf") String cpf, @QueryParam("nome") String nome) {
 		try {
 			ClienteDAO dao = new ClienteDAO();
 			Cliente cliente = new Cliente();
@@ -45,6 +48,11 @@ public class ClienteResource {
 			if (cpf != null) {
 				cliente.setCpf(cpf);
 				cliente = dao.buscarPorCpf(cliente);
+			}
+			if (nome != null) {
+				List<Cliente> listaDeClientes = new ArrayList<Cliente>();
+				listaDeClientes = dao.buscarPorNome(nome);
+				return Response.ok().entity(listaDeClientes).build();
 			}
 			return Response.ok().entity(cliente).build();
 		} catch (Exception e) {
