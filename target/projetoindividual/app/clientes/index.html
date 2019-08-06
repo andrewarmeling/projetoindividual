@@ -1,22 +1,37 @@
 <link rel="stylesheet" href="index.css">
 
-<form class="h-100" id="form">
+<form id="form">
 	<h1 class="text-center mb-5">Cadastro de Cliente</h1>
 
 	<div class="form-row">
 		<div class="form-group col">
 			<label for="cpf">CPF ou CNPJ</label>
-			<input type="text" class="form-control" id="cpf" placeholder="123.456.789/10">
+			<div class="input-group">
+				<input type="text" class="form-control numerico" id="cpf" placeholder="123.456.789-10" maxlength="14">
+				<div class="input-group-append" id="buscarPorCpf">
+					<button class="btn btn-secondary h-100" type="button" tabindex="-1" onclick="buscarPorCpf()"><i class="fas fa-arrow-right"></i></button>
+				</div>
+			</div>
 		</div>
 		<div class="form-group col">
 			<label for="id">ID do Cliente</label>
-			<input type="text" class="form-control" id="id" placeholder="ID">
+			<div class="input-group">
+				<input type="text" class="form-control numerico" id="id" placeholder="ID">
+				<div class="input-group-append" id="buscarPorId">
+					<button class="btn btn-secondary h-100" type="button" tabindex="-1" onclick="buscarPorId()"><i class="fas fa-arrow-right"></i></button>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="form-row">
 		<div class="form-group col">
 			<label for="nome">Nome ou Razão Social</label>
-			<input type="text" class="form-control" id="nome" placeholder="Nome do Cliente">
+			<div class="input-group">
+				<input type="text" class="form-control" id="nome" placeholder="Nome do Cliente">
+				<div class="input-group-append" id="buscarPorNome">
+					<button class="btn btn-secondary h-100" type="button" tabindex="-1" onclick="exibirModalBuscaPorNome()"><i class="fas fa-search"></i></button>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="form-row">
@@ -28,11 +43,11 @@
 	<div class="form-row">
 		<div class="form-group col">
 			<label for="telefoneprincipal">Telefone Principal</label>
-			<input type="text" class="form-control" id="telefoneprincipal" placeholder="(99)123-456-789">
+			<input type="text" class="form-control numerico" id="telefoneprincipal" placeholder="(99)123-456-789" maxlength="15">
 		</div>
 		<div class="form-group col">
 			<label for="telefonesecundario">Telefone Secundário</label>
-			<input type="text" class="form-control" id="telefonesecundario" placeholder="(11)987-654-321">
+			<input type="text" class="form-control numerico" id="telefonesecundario" placeholder="(11)987-654-321" maxlength="15">
 		</div>
 	</div>
 	<div class="form-row">
@@ -44,15 +59,16 @@
 	<div class="form-row">
 		<div class="form-group col-3">
 			<label for="cep">CEP</label>
-			<input type="text" class="form-control" id="cep" placeholder="88123-45">
+			<input type="text" class="form-control numerico" id="cep" placeholder="88123-456" maxlength="8">
 		</div>
 		<div class="form-group col-7">
 			<label for="cidade">Cidade</label>
 			<input type="text" class="form-control" id="cidade" placeholder="Cidade">
 		</div>
+		<!--  Trocar Por Select  -->
 		<div class="form-group col-2">
 			<label for="uf">UF</label>
-			<input type="text" class="form-control" id="uf" placeholder="UF">
+			<input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2">
 		</div>
 	</div>
 	<div class="form-row">
@@ -69,14 +85,29 @@
 			<input type="text" class="form-control" id="bairro" placeholder="Bairro">
 		</div>
 	</div>
-	<div class="form-row mt-4">
-		<div class="form-group col-1">
-			<button type="button" class="btn btn-danger w-100">Excluir</button>
+	<div class="form-row mt-4" id="botoesFormularioLimpo">
+		<div class="form-group col-2 offset-8">
+			<button type="button" class="btn btn-warning w-100" onclick="return limparFormulario()">Limpar</button>
 		</div>
-		<div class="form-group col-1 offset-10">
-			<button type="button" class="btn btn-primary w-100" onclick="return clienteSubmit()">Salvar</button>
+		<div class="form-group col-2">
+			<button type="button" class="btn btn-primary w-100" onclick="return incluirCliente()">Incluir</button>
 		</div>
 	</div>
+
+	<!--  Esta Div deve substituir aquela acima quando há um cliente trazido do Back-end -->
+	<div class="form-row mt-4" id="botoesFormularioCarregado">
+		<div class="form-group col-2 offset-6">
+			<button type="button" class="btn btn-danger w-100" onclick="return excluirCliente()">Excluir</button>
+		</div>
+		<div class="form-group col-2">
+			<button type="button" class="btn btn-warning w-100" onclick="return limparFormulario()">Limpar</button>
+		</div>
+		<div class="form-group col-2">
+			<button type="button" class="btn btn-primary w-100" onclick="return modificarCliente()">Salvar</button>
+		</div>
+	</div>
+
 </form>
 
 <script src="clientes/index.js"></script>
+<script src="clientes/modalBuscarCliente/index.js"></script>

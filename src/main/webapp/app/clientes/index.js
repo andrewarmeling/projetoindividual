@@ -8,7 +8,7 @@ $(document).ready(function() {
 //	Validação de campos destinados apenas a valores numéricos
     $('.numerico').on('input', function() {
         this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
-    });
+    });    
     
 //	Pesquisar por alternativa para a solução abaixo
 //    Mostra e Esconde os botões de pesquisar
@@ -43,7 +43,7 @@ function incluirCliente() {
 			contentType: 'application/json; charset="utf-8"',
 			dataType: 'json',
 			success: function () {
-				$;
+				console.log("cliente cadastrado com sucesso")
 			},
 			error: function() {
 				console.log("erro ao cadastrar cliente");
@@ -96,7 +96,7 @@ function buscarPorCpf() {
 	});
 }
 
-function buscarPorNome() {
+function buscarPorNome(callback) {
 	var dados = {
 			nome: $('#nome').val()
 	}
@@ -109,8 +109,7 @@ function buscarPorNome() {
 		dataType: 'json',
 		success: function(dados) {
 			console.log("contatos trazidos com sucesso");
-			exibirModal(dados);
-			
+			callback(dados);
 		},
 		error: function(){
 			console.log("erro ao buscar clientes");
@@ -168,9 +167,10 @@ function validarCamposNecessarios() {
 	};
 }
 
-function exibirModal(dados) {
-	$('#modal').load("clientes/modalBuscarCliente");
-	$('#modal').modal();
+function exibirModalBuscaPorNome() {
+	$('#modal').load("clientes/modalBuscarCliente", function() {
+		$('#modal').modal();
+	});
 }
 
 function limparFormulario() {
