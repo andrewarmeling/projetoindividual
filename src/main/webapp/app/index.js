@@ -2,12 +2,12 @@ $("#clientes").click(function() {
     $(".conteudo").load("clientes")
 })
 
-$("#cadastrosAuxiliares").click(function() {
-    $(".conteudo").load("cadastrosauxiliares")
-})
-
 $("#buscarOS").click(function() {
     $(".conteudo").load("buscaros")
+})
+
+$("#aberturaDeOS").click(function() {
+    $(".conteudo").load("aberturadeos")
 })
 
 $("#ordemDeServico").click(function() {
