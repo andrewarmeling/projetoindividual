@@ -15,7 +15,6 @@ $('#modal').on('shown.bs.modal', function(){
 			}
 		}).on('select.dt', function(e, dt, type, indexes) {			
 			atualizarCampos(dt.row({selected: true}).data());
-			mostrarBotoesFormularioCarregado();
 			$('#modal').modal('hide');
 		});
 	});

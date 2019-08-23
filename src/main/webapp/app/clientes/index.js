@@ -65,7 +65,6 @@ function buscarPorId(){
 		dataType: 'json',
 		success: function(dados) {
 			atualizarCampos(dados);
-			mostrarBotoesFormularioCarregado();
 			console.log("contato trazido com sucesso");
 		},
 		error: function(){
@@ -87,7 +86,6 @@ function buscarPorCpf() {
 		dataType: 'json',
 		success: function(dados) {
 			atualizarCampos(dados);
-			mostrarBotoesFormularioCarregado();
 			console.log("contato trazido com sucesso");
 		},
 		error: function(){
@@ -225,6 +223,8 @@ function atualizarCampos(dados) {
 	$('#endereco').val(dados.endereco);
 	$('#complemento').val(dados.complemento);
 	$('#bairro').val(dados.bairro);
+	
+	mostrarBotoesFormularioCarregado();
 }
 
 function mostrarBotoesFormularioLimpo() {

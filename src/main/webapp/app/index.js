@@ -7,7 +7,7 @@ $("#buscarOS").click(function() {
 })
 
 $("#aberturaDeOS").click(function() {
-    $(".conteudo").load("aberturadeos")
+    $(".conteudo").load("aberturaDeOs")
 })
 
 $("#ordemDeServico").click(function() {
