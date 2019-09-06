@@ -1,3 +1,21 @@
+function abrirOS() {
+	if(validarCamposNecessarios()) {
+		$.ajax({
+			url: '../api/ordemDeServico/',
+			type: 'POST',
+			data: JSON.stringify(coletarDadosFormulario()),
+			contentType: 'application/json; charset="utf-8"',
+			dataType: 'json',
+			success: function () {
+				console.log("os cadastrada com sucesso")
+			},
+			error: function() {
+				console.log("erro ao cadastrar os");
+			}
+		});
+	}
+}
+
 function exibirModalBuscaPorNome() {
 	$('#modal').load("clientes/modalBuscarCliente", function() {
 		$('#modal').modal();
@@ -55,7 +73,25 @@ function validarCamposNecessarios() {
 	};
 }
 
+function coletarDadosFormulario() {
+	var dados = {
+	idcliente: $('#id').val(),
+	tipoEquipamento: $('#tipo').val(),
+	marcaEquipamento: $('#marca').val(),
+	corEquipamento: $('#cor').val(),
+	modeloEquipamento: $('#modelo').val(),
+	serialEquipamento: $('#serial').val(),
+	solcitacao: $('#solicitacao').val(),
+	condicoesEquipamento: $('#condicoes').val(),
+	senhaEquipamento: $('#senha').val(),
+	observacoesInternas: $('#observacoes').val()
+	}
+	
+	return dados;
+}
+
 function limparFormulario() {
+	$('#id').val("");
 	$('#cliente').val("");
 	$('#tipo').val("");
 	$('#marca').val("");
@@ -66,6 +102,4 @@ function limparFormulario() {
 	$('#condicoes').val("");
 	$('#senha').val("");
 	$('#observacoes').val("");
-	
-//	mostrarBotoesFormularioLimpo();
 }
