@@ -19,16 +19,12 @@ public class OrdemDeServicoDAO {
 
 	public String abrirOrdemDeServico(OrdemDeServico ordemDeServico) {
 		try {
-			String comando = "INSERT INTO ordemDeServico(";
+			String comando = "INSERT INTO ordemdeservico(";
 			String comando2 = " VALUES(";
 
-			if (!ordemDeServico.getNumeroOs().isEmpty()) {
-				comando += "numeroOs";
-				comando2 += "'" + ordemDeServico.getNumeroOs() + "'";
-			}
 			if (!ordemDeServico.getIdCliente().isEmpty()) {
-				comando += ", idcliente";
-				comando2 += ", '" + ordemDeServico.getIdCliente() + "'";
+				comando += "idcliente";
+				comando2 += "'" + ordemDeServico.getIdCliente() + "'";
 			}
 			if (!ordemDeServico.getTipoEquipamento().isEmpty()) {
 				comando += ", tipoEquipamento";
@@ -59,7 +55,7 @@ public class OrdemDeServicoDAO {
 				comando2 += ", '" + ordemDeServico.getCondicoesEquipamento() + "'";
 			}
 			if (!ordemDeServico.getSenhaEquipamento().isEmpty()) {
-				comando += ", senhEquipamento";
+				comando += ", senhaEquipamento";
 				comando2 += ", '" + ordemDeServico.getSenhaEquipamento() + "'";
 			}
 			if (!ordemDeServico.getObservacoesInternas().isEmpty()) {
@@ -67,11 +63,11 @@ public class OrdemDeServicoDAO {
 				comando2 += ", '" + ordemDeServico.getObservacoesInternas() + "'";
 			}
 
-			comando += ")" + comando2 + ");" + " SELECT LAST_INSERT_ID";
+			comando += ")" + comando2 + ");";
 			Statement stmt = conexao.createStatement();
-			ResultSet rs = stmt.executeQuery(comando);
+			stmt.executeUpdate(comando);
 			
-			System.out.println(rs.next());
+			System.out.println(stmt.executeQuery("SELECT LAST_INSERT_ID()"));
 			
 			return "";
 			

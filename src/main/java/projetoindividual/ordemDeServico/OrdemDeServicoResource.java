@@ -16,6 +16,8 @@ public class OrdemDeServicoResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response abrirOS(OrdemDeServico ordemDeServico) {
 		try {
+			OrdemDeServicoDAO dao = new OrdemDeServicoDAO();			
+			dao.abrirOrdemDeServico(ordemDeServico);
 			return Response.ok().build();
 		} catch (Exception e) {
 			e.printStackTrace();

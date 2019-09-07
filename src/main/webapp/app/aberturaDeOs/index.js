@@ -1,5 +1,7 @@
 function abrirOS() {
+	console.log("ok1");
 	if(validarCamposNecessarios()) {
+		console.log("ok2");
 		$.ajax({
 			url: '../api/ordemDeServico/',
 			type: 'POST',
@@ -13,6 +15,8 @@ function abrirOS() {
 				console.log("erro ao cadastrar os");
 			}
 		});
+	} else {
+		console.log("shit");
 	}
 }
 
@@ -54,7 +58,7 @@ function atualizarCampos(dados) {
 function validarCamposNecessarios() {
 	if ($('#id').val() != null) {
 		if (($('#serial').val().length > 3)) {
-			if (($('#solicitacao').val().lenght > 10)){
+			if (($('#solicitacao').val().length > 10)){
 				return true;
 			} else {
 				$('#solicitacao').focus();
@@ -67,21 +71,21 @@ function validarCamposNecessarios() {
 			return false;
 		}
 	} else {
-		$('#id').focus();
-		$('#id').select();
+		$('#cliente').focus();
+		$('#cliente').select();
 		return false;
 	};
 }
 
 function coletarDadosFormulario() {
 	var dados = {
-	idcliente: $('#id').val(),
+	idCliente: $('#id').val(),
 	tipoEquipamento: $('#tipo').val(),
 	marcaEquipamento: $('#marca').val(),
 	corEquipamento: $('#cor').val(),
 	modeloEquipamento: $('#modelo').val(),
 	serialEquipamento: $('#serial').val(),
-	solcitacao: $('#solicitacao').val(),
+	solicitacao: $('#solicitacao').val(),
 	condicoesEquipamento: $('#condicoes').val(),
 	senhaEquipamento: $('#senha').val(),
 	observacoesInternas: $('#observacoes').val()
