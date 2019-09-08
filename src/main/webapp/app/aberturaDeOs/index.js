@@ -1,22 +1,21 @@
 function abrirOS() {
-	console.log("ok1");
 	if(validarCamposNecessarios()) {
-		console.log("ok2");
 		$.ajax({
 			url: '../api/ordemDeServico/',
 			type: 'POST',
 			data: JSON.stringify(coletarDadosFormulario()),
 			contentType: 'application/json; charset="utf-8"',
 			dataType: 'json',
-			success: function () {
-				console.log("os cadastrada com sucesso")
+			success: function (data) {
+				$('#OSAtual').val(data);
+				$('.conteudo').load("ordemdeservico");
 			},
 			error: function() {
 				console.log("erro ao cadastrar os");
 			}
 		});
 	} else {
-		console.log("shit");
+		console.log("erro ao abrir OS");
 	}
 }
 

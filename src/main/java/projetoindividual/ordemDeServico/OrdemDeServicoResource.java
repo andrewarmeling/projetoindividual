@@ -17,10 +17,10 @@ public class OrdemDeServicoResource {
 	public Response abrirOS(OrdemDeServico ordemDeServico) {
 		try {
 			OrdemDeServicoDAO dao = new OrdemDeServicoDAO();			
-			dao.abrirOrdemDeServico(ordemDeServico);
-			return Response.ok().build();
+			String numeroOS = dao.abrirOrdemDeServico(ordemDeServico);
+			
+			return Response.ok().entity(numeroOS).build();
 		} catch (Exception e) {
-			e.printStackTrace();
 			return Response.serverError().build();
 		}
 	}

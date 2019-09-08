@@ -67,9 +67,13 @@ public class OrdemDeServicoDAO {
 			Statement stmt = conexao.createStatement();
 			stmt.executeUpdate(comando);
 			
-			System.out.println(stmt.executeQuery("SELECT LAST_INSERT_ID()"));
+			ResultSet rs = stmt.executeQuery("SELECT LAST_INSERT_ID()");
+			String numeroOS = "";
+			if (rs.next()) {
+				numeroOS = rs.getString(1);
+			}
 			
-			return "";
+			return numeroOS;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
