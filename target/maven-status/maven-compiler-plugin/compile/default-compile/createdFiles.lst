@@ -1,11 +1,14 @@
+projetoindividual/ordemDeServico/OrdemDeServicoDAO.class
+projetoindividual/util/ConversorBase64.class
+projetoindividual/util/ConversorMD5.class
+projetoindividual/cliente/ClienteResource.class
+projetoindividual/ordemDeServico/OrdemDeServicoResource.class
+projetoindividual/ordemDeServico/OrdemDeServico.class
 projetoindividual/cliente/Cliente.class
 projetoindividual/login/LoginDAO.class
-projetoindividual/util/ConversorBase64.class
 projetoindividual/usuarios/Usuario.class
-projetoindividual/util/ConversorMD5.class
 projetoindividual/cliente/ClienteDAO.class
 projetoindividual/rest/RestSetup.class
 projetoindividual/login/LoginResource.class
 projetoindividual/rest/About.class
-projetoindividual/cliente/ClienteResource.class
 projetoindividual/jdbc/Conexao.class
