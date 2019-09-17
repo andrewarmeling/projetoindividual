@@ -1,7 +1,7 @@
 /home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/login/LoginDAO.java
 /home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/rest/RestSetup.java
-/home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/cliente/ClienteResource.java
 /home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/usuarios/Usuario.java
+/home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/cliente/ClienteResource.java
 /home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/util/ConversorBase64.java
 /home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/ordemDeServico/OrdemDeServicoDAO.java
 /home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/rest/About.java
@@ -10,7 +10,7 @@
 /home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/ordemDeServico/OrdemDeServicoResource.java
 /home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/util/ConversorMD5.java
 /home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/usuarios/UsuarioDAO.java
-/home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/cliente/Cliente.java
 /home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/login/LoginResource.java
-/home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/cliente/ClienteDAO.java
+/home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/cliente/Cliente.java
 /home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/usuarios/UsuarioResource.java
+/home/andre/eclipse/workspace/projetoindividual/src/main/java/projetoindividual/cliente/ClienteDAO.java

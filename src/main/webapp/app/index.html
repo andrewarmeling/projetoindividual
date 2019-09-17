@@ -1,70 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <title>AndreERP</title>
-
-    <!-- Importações CSS Bootstrap -->
-    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
-
-	<!--  Importações CSS FontAwesome -->
-	<link rel="stylesheet" href="../lib/css/fontawesome.css">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>AndreERP</title>
 	
-	<!-- Importações de estilo jQuery DataTables -->
-	<link rel="stylesheet" href="../lib/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" href="../lib/css/select.bootstrap4.min.css">
-
-    <!-- Importações CSS do projeto -->
-    <link rel="stylesheet" href="index.css">
-</head>
-
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Barra Lateral -->
-            <div class="col-sm-3 col-lg-2 h-100 barra-lateral">
-                <ul class="menu-lateral">
-                    <p class="titulo-menu">AndreERP</p>
-                    <li><a href="#">Início</a></li>
-                    <li><a id="clientes" href="#">Clientes</a></li>
-					<li><a id="buscarOS" href="#">Buscar OS</a></li>
-                    <li><a id="aberturaDeOS" href="#">Abertura de OS</a></li>
-                    <li><a id="ordemDeServico" href="#">Ordem de Serviço</a></li>
-                </ul>
-                <ul class="menu-rodape">
-                    <li><a href="#">Sair</a></li>
-                </ul>
-            </div>
-            <!-- Conteúdo Dinâmico (lado direito) -->
-            <div class="conteudo col-sm-9 col-lg-10 offset-sm-3 offset-lg-2">
-                <!-- Conteúdo carregado de acordo com a aba selecionada -->
-            </div>
-        </div>
-    </div>
-    
-    <!-- Armazenar o número da última Ordem de Serviço carregada, para que mantenha-se carregada durante sessão -->
-    <div class="d-none">
-    	<input type="text" id="OSAtual">
-    </div>
-    
-    <!-- Template para modal, carregado de acordo com o solicitado pela pãgina -->
-    <div class="modal" id="modal" tabindex="-1" role="dialog">
-		<!-- Solicitar carregamento de todo o diretório, não apenas html do modal -->
-	</div>
-
-    <!-- Importações JS BootStrap -->
-    <script src="../lib/js/jquery-3.4.1.min.js "></script>
-    <script src="../lib/js/popper.min.js "></script>
-    <script src="../lib/js/bootstrap.min.js "></script>
-
-	<!-- Importações JS jQuery DataTables -->    
-    <script src="../lib/js/jquery.dataTables.min.js"></script>
-	<script src="../lib/js/dataTables.bootstrap4.min.js"></script>
-	<script src="../lib/js/dataTables.select.min.js"></script>
-
-    <!-- Importações JS projeto -->
-    <script src="index.js "></script>
-</body>
+	    <!-- Importações CSS Bootstrap -->
+	    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+	
+		<!--  Importações CSS FontAwesome -->
+		<link rel="stylesheet" href="../lib/css/fontawesome.css">
+		
+		<!-- Importações CSS jQuery DataTables -->
+		<link rel="stylesheet" href="../lib/css/dataTables.bootstrap4.min.css">
+		<link rel="stylesheet" href="../lib/css/select.bootstrap4.min.css">
+		
+		<!-- Importações CSS gijgo (DatePicker) -->
+		<link rel="stylesheet" href="../lib/css/gijgo.min.css">
+	
+	    <!-- Importações CSS do projeto -->
+	    <link rel="stylesheet" href="index.css">
+	</head>
+	
+	<body>
+	    <div class="container-fluid">
+	        <div class="row">
+	            <!-- Barra Lateral -->
+	            <div class="col-sm-3 col-lg-2 h-100 barra-lateral">
+	                <ul class="menu-lateral">
+	                    <p class="titulo-menu">AndreERP</p>
+	                    <li><a href="#">Início</a></li>
+	                    <li><a id="clientes" href="#">Clientes</a></li>
+						<li><a id="buscarOS" href="#">Buscar OS</a></li>
+	                    <li><a id="aberturaDeOS" href="#">Abertura de OS</a></li>
+	                    <li><a id="ordemDeServico" href="#">Ordem de Serviço</a></li>
+	                </ul>
+	                <ul class="menu-rodape">
+	                    <li><a href="#">Sair</a></li>
+	                </ul>
+	            </div>
+	            <!-- Conteúdo Dinâmico (lado direito) -->
+	            <div class="conteudo col-sm-9 col-lg-10 offset-sm-3 offset-lg-2">
+	                <!-- Conteúdo carregado de acordo com a aba selecionada -->
+	            </div>
+	        </div>
+	    </div>
+	    
+	    <!-- Armazenar o número da última Ordem de Serviço carregada, para que mantenha-se carregada durante sessão -->
+	    <div class="d-none">
+	    	<input type="text" id="OSAtual">
+	    </div>
+	    
+	    <!-- Template para modal, carregado de acordo com o solicitado pela pãgina -->
+	    <div class="modal" id="modal" tabindex="-1" role="dialog">
+			<!-- Solicitar carregamento de todo o diretório, não apenas html do modal -->
+		</div>
+	
+	    <!-- Importações JS BootStrap -->
+	    <script src="../lib/js/jquery-3.4.1.min.js "></script>
+	    <script src="../lib/js/popper.min.js "></script>
+	    <script src="../lib/js/bootstrap.min.js "></script>
+	
+		<!-- Importações JS jQuery DataTables -->    
+	    <script src="../lib/js/jquery.dataTables.min.js"></script>
+		<script src="../lib/js/dataTables.bootstrap4.min.js"></script>
+		<script src="../lib/js/dataTables.select.min.js"></script>
+		
+		<!-- Importações JS gijgo (DatePicker) -->
+		<script src="../lib/js/gijgo.min.js"></script>
+		<script src="../lib/js/gijgo.messages.pt-br.js"></script>
+	
+	    <!-- Importações JS projeto -->
+	    <script src="index.js "></script>
+	</body>
 
 </html>
