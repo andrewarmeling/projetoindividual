@@ -5,10 +5,12 @@ body {
 }
 
 .barra-lateral {
-    position: absolute;
+    position: fixed;
     background: #222222;
     padding: 0;
     text-indent: 1rem;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .menu-lateral {
