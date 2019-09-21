@@ -15,7 +15,7 @@ function abrirOS() {
 			}
 		});
 	} else {
-		console.log("erro ao abrir OS");
+		console.log("erro ao cadastrar OS");
 	}
 }
 

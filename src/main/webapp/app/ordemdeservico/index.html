@@ -56,8 +56,9 @@
 	
 	<div class="form-row">
 		<div class="form-group col-md-4 col-lg-2 offset-lg-3">
-			<label for="status">Status da OS</label>
-			<select class="form-control" id="status">
+			<label for="statusOs">Status da OS</label>
+			<select class="form-control" id="statusOs">
+				<option>Selecione</option>
 				<option>1 - Recebido</option>
 				<option>2 - Em análise</option>
 				<option>3 - Cotação</option>
@@ -69,6 +70,7 @@
 		<div class="form-group col-md-4 col-lg-2">
 			<label for="statusAprovacao">Status de Aprovação</label>
 			<select class="form-control" id="statusAprovacao">
+				<option>Selecione</option>
 				<option>1 - Aprovado</option>
 				<option>2 - Recusado</option>
 				<option>3 - Sem Reparo</option>
@@ -85,8 +87,8 @@
 		<div class="form-group col-6 d-flex flex-column">
 			<div class="form-row flex-grow-1">
 				<div class="form-group col">
-					<label for="servicos">Descrição dos Serviços</label>
-					<textarea class="form-control h-90 tamanho-fixo" id="servicos" placeholder="Descrição dos Serviços efetuados"></textarea>
+					<label for="servico">Descrição dos Serviços</label>
+					<textarea class="form-control h-90 tamanho-fixo" id="servico" placeholder="Descrição dos Serviços efetuados"></textarea>
 				</div>
 			</div>	
 			<div class="form-row">
@@ -105,8 +107,8 @@
 		<div class="form-group col-6">
 			<div class="form-row">
 				<div class="form-group col-8 offset-2">
-					<label for="subTotal">Sub-Total</label>
-					<input type="text" class="form-control" id="subTotal">
+					<label for="valorServico">Valor do Serviço</label>
+					<input type="text" class="form-control" id="valorServico">
 				</div>
 			</div>
 			<div class="form-row">

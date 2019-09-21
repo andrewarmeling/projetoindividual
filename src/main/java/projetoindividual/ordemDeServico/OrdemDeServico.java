@@ -13,6 +13,14 @@ public class OrdemDeServico {
 	private String condicoesEquipamento;
 	private String senhaEquipamento;
 	private String observacoesInternas;
+	private String statusOs;
+	private String statusAprovacao;
+	private String prazoEstimado;
+	private String descricaoServico;
+	private String valorServico;
+	private String desconto;
+	private String acrescimo;
+	private String total;
 	
 	public String getNumeroOs() {
 		return numeroOs;
@@ -79,6 +87,54 @@ public class OrdemDeServico {
 	}
 	public void setObservacoesInternas(String observacoesInternas) {
 		this.observacoesInternas = observacoesInternas;
+	}
+	public String getStatusOs() {
+		return statusOs;
+	}
+	public void setStatusOs(String statusOs) {
+		this.statusOs = statusOs;
+	}
+	public String getStatusAprovacao() {
+		return statusAprovacao;
+	}
+	public void setStatusAprovacao(String statusAprovacao) {
+		this.statusAprovacao = statusAprovacao;
+	}
+	public String getPrazoEstimado() {
+		return prazoEstimado;
+	}
+	public void setPrazoEstimado(String prazoEstimado) {
+		this.prazoEstimado = prazoEstimado;
+	}
+	public String getDescricaoServico() {
+		return descricaoServico;
+	}
+	public void setDescricaoServico(String descricaoServico) {
+		this.descricaoServico = descricaoServico;
+	}
+	public String getValorServico() {
+		return valorServico;
+	}
+	public void setValorServico(String valorServico) {
+		this.valorServico = valorServico;
+	}
+	public String getDesconto() {
+		return desconto;
+	}
+	public void setDesconto(String desconto) {
+		this.desconto = desconto;
+	}
+	public String getAcrescimo() {
+		return acrescimo;
+	}
+	public void setAcrescimo(String acrescimo) {
+		this.acrescimo = acrescimo;
+	}
+	public String getTotal() {
+		return total;
+	}
+	public void setTotal(String total) {
+		this.total = total;
 	}
 	
 }
