@@ -8,7 +8,7 @@ $(document).ready(function() {
 //	Validação de campos destinados apenas a valores numéricos
     $('.numerico').on('input', function() {
         this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
-    });    
+    });
     
 //	Pesquisar por alternativa para a solução abaixo
 //    Mostra e Esconde os botões de pesquisar

@@ -3,10 +3,13 @@
 <form>
 	<h1 id="tituloPaginaOS" class="text-center mb-5">Ordem de Serviço</h1>
 	
+	<!-- Campo escondido, guarda o ID do cliente -->
+	<input class="d-none" type="text" id="idCliente">
+	
 	<div class="form-row">
 		<div class="form-group col">	
-			<label for="cliente">Cliente</label>
-			<input type="text" class="form-control" id="cliente" placeholder="Nome do Cliente">
+			<label for="nomeCliente">Cliente</label>
+			<input type="text" class="form-control" id="nomeCliente" placeholder="Nome do Cliente">
 		</div>
 		<div class="form-group col">	
 			<label for="tipo">Tipo do Equipamento</label>
@@ -58,22 +61,21 @@
 		<div class="form-group col-md-4 col-lg-2 offset-lg-3">
 			<label for="statusOs">Status da OS</label>
 			<select class="form-control" id="statusOs">
-				<option>Selecione</option>
-				<option>1 - Recebido</option>
-				<option>2 - Em análise</option>
-				<option>3 - Cotação</option>
-				<option>4 - Em manutenção</option>
-				<option>5 - Concluído</option>
-				<option>6 - Entregue</option>		
+				<option value="1">1 - Recebido</option>
+				<option value="2">2 - Em análise</option>
+				<option value="3">3 - Cotação</option>
+				<option value="4">4 - Em manutenção</option>
+				<option value="5">5 - Concluído</option>
+				<option value="6">6 - Entregue</option>		
 			</select>
 		</div>
 		<div class="form-group col-md-4 col-lg-2">
 			<label for="statusAprovacao">Status de Aprovação</label>
 			<select class="form-control" id="statusAprovacao">
-				<option>Selecione</option>
-				<option>1 - Aprovado</option>
-				<option>2 - Recusado</option>
-				<option>3 - Sem Reparo</option>
+				<option value="0">Selecione</option>
+				<option value="1">1 - Aprovado</option>
+				<option value="2">2 - Recusado</option>
+				<option value="3">3 - Sem Reparo</option>
 			</select>
 		</div>
 		<div class="form-group col-md-4 col-lg-2">
@@ -108,25 +110,25 @@
 			<div class="form-row">
 				<div class="form-group col-8 offset-2">
 					<label for="valorServico">Valor do Serviço</label>
-					<input type="text" class="form-control" id="valorServico">
+					<input type="text" class="form-control numerico text-right" id="valorServico">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-8 offset-2">
 					<label for="desconto">Desconto</label>
-					<input type="text" class="form-control" id="desconto">
+					<input type="text" class="form-control numerico text-right" id="desconto">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-8 offset-2">
 					<label for="acrescimo">Acréscimo</label>
-					<input type="text" class="form-control" id="acrescimo">
+					<input type="text" class="form-control numerico text-right" id="acrescimo">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-8 offset-2">
-					<label for="Total">Total</label>
-					<input type="text" class="form-control" id="Total">
+					<label for="total">Total</label>
+					<input type="text" class="form-control numerico text-right" id="total">
 				</div>
 			</div>
 		

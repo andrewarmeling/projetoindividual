@@ -17,10 +17,15 @@ public class OrdemDeServico {
 	private String statusAprovacao;
 	private String prazoEstimado;
 	private String descricaoServico;
+	private String dataInicio;
+	private String dataFim;
 	private String valorServico;
 	private String desconto;
 	private String acrescimo;
 	private String total;
+	
+	/* Este Atributo fica separado pois não está presente no banco, para qual a busca é feita com um Join */
+	private String nomeCliente;
 	
 	public String getNumeroOs() {
 		return numeroOs;
@@ -112,6 +117,18 @@ public class OrdemDeServico {
 	public void setDescricaoServico(String descricaoServico) {
 		this.descricaoServico = descricaoServico;
 	}
+	public String getDataInicio() {
+		return dataInicio;
+	}
+	public void setDataInicio(String dataInicio) {
+		this.dataInicio = dataInicio;
+	}
+	public String getDataFim() {
+		return dataFim;
+	}
+	public void setDataFim(String dataFim) {
+		this.dataFim = dataFim;
+	}
 	public String getValorServico() {
 		return valorServico;
 	}
@@ -136,5 +153,10 @@ public class OrdemDeServico {
 	public void setTotal(String total) {
 		this.total = total;
 	}
-	
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
+	}
 }
