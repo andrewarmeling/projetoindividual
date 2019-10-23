@@ -1,5 +1,8 @@
 package projetoindividual.ordemDeServico;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.PATCH;
@@ -57,5 +60,20 @@ public class OrdemDeServicoResource {
 			e.printStackTrace();
 			return Response.serverError().build();
 		}
-	}	
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("porData/{dataInicio}/{dataFim}")
+	public Response buscarPorData(@PathParam("dataInicio") String dataInicio, @PathParam("dataFim") String dataFim) {
+		try {
+			OrdemDeServicoDAO dao = new OrdemDeServicoDAO();
+			List<OrdemDeServico> ordens = new ArrayList<OrdemDeServico>(dao.buscarOsPorData(dataInicio, dataFim));
+			
+			return Response.status(200).entity(ordens).build();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.serverError().build();
+		}
+	}
 }

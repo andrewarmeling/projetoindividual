@@ -1,32 +1,30 @@
-<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="ordemdeservico/index.css">
 
 <form>
-	<h1 id="tituloPaginaOS">Ordem de Serviço</h1>
+	<h1 id="tituloPaginaOS" class="text-center mb-3">Ordem de Serviço</h1>
 	
+	<!-- Campo escondido, guarda o ID do cliente -->
+	<input class="d-none" type="text" id="idCliente">
 	
 	<div class="form-row">
-		<div class="col-6">
-			<div class="form-row">
-				<div class="form-group col-12">	
-					<label for="cliente">Cliente</label>
-					<input type="text" class="form-control" id="cliente" placeholder="Nome do Cliente">
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-group col-12">	
-					<label for="tipo">Tipo do Equipamento</label>
-					<input type="text" class="form-control" id="tipo" placeholder="Tipo do Equipamento">
-				</div>
-			</div>
+		<div class="form-group col">	
+			<label for="nomeCliente">Cliente</label>
+			<input type="text" class="form-control" id="nomeCliente" placeholder="Nome do Cliente">
 		</div>
-		<div class="col-6">
-			<div class="form-row">
-				<div class="form-group col-12">	
-					<label for="solicitacao">Defeito ou Solicitação</label>
-					<textarea class="form-control" id="solicitacao" placeholder="Defeito ou Solicitação"></textarea>
-				</div>
-			</div>
+		<div class="form-group col">	
+			<label for="tipo">Tipo do Equipamento</label>
+			<input type="text" class="form-control" id="tipo" placeholder="Tipo do Equipamento">
 		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col">	
+			<label for="senha">Senha do Equipamento</label>
+			<input type="text" class="form-control" id="senha" placeholder="Senha do Equipamento">
+		</div>
+		<div class="form-group col">	
+			<label for="condicoes">Condições Gerais</label>
+			<input type="text" class="form-control" id="condicoes" placeholder="Condições Gerais">
+		</div>	
 	</div>
 	<div class="form-row">
 		<div class="form-group col">	
@@ -48,30 +46,101 @@
 			<input type="text" class="form-control" id="serial" placeholder="Número de Série do Equipamento">
 		</div>	
 	</div>
-	
 	<div class="form-row">
-		<div class="col-6">
-			<div class="form-row">
-				<div class="form-group col-12">	
-					<label for="senha">Senha do Equipamento</label>
-					<input type="text" class="form-control" id="senha" placeholder="Senha do Equipamento">
-				</div>
-				<div class="form-group col-12">	
-					<label for="condicoes">Condições Gerais</label>
-					<input type="text" class="form-control" id="condicoes" placeholder="Condições Gerais">
-				</div>	
-			</div>
+		<div class="form-group col">	
+			<label for="solicitacao">Defeito ou Solicitação</label>
+			<textarea class="form-control" id="solicitacao" placeholder="Defeito ou Solicitação"></textarea>
 		</div>
-		<div class="col-6">
-			<div class="form-row">
-				<div class="form-group col-12">	
-					<label for="observacoes">Observações Internas</label>
-					<textarea class="form-control" id="observacoes" placeholder="Observações sobre a ordem de serviço para uso interno"></textarea>
-				</div>
-			</div>		
+		<div class="form-group col">	
+			<label for="observacoes">Observações Internas</label>
+			<textarea class="form-control" id="observacoes" placeholder="Observações sobre a ordem de serviço para uso interno"></textarea>
 		</div>
 	</div>
+	
+	<div class="form-row">
+		<div class="form-group col-md-4 col-lg-2 offset-lg-3">
+			<label for="statusOs">Status da OS</label>
+			<select class="form-control" id="statusOs">
+				<option value="1">1 - Recebido</option>
+				<option value="2">2 - Em análise</option>
+				<option value="3">3 - Cotação</option>
+				<option value="4">4 - Em manutenção</option>
+				<option value="5">5 - Concluído</option>
+				<option value="6">6 - Entregue</option>		
+			</select>
+		</div>
+		<div class="form-group col-md-4 col-lg-2">
+			<label for="statusAprovacao">Status de Aprovação</label>
+			<select class="form-control" id="statusAprovacao">
+				<option value="0">Selecione</option>
+				<option value="1">1 - Aprovado</option>
+				<option value="2">2 - Recusado</option>
+				<option value="3">3 - Sem Reparo</option>
+			</select>
+		</div>
+		<div class="form-group col-md-4 col-lg-2">
+			<label for="prazo">Prazo Estimado</label>
+			<!-- Carregado por JS -->
+			<input class="form-control" id="prazo">
+		</div>
+	</div>
+	
+	<div class="form-row">
+		<div class="form-group col-6 d-flex flex-column">
+			<div class="form-row flex-grow-1">
+				<div class="form-group col">
+					<label for="servico">Descrição dos Serviços</label>
+					<textarea class="form-control h-90 tamanho-fixo" id="servico" placeholder="Descrição dos Serviços efetuados"></textarea>
+				</div>
+			</div>	
+			<div class="form-row">
+				<div class="form-group col">
+					<label for="dataInicio">Data Início</label>
+					<!-- Carregado por JS -->
+					<input class="form-control" id="dataInicio">
+				</div>
+				<div class="form-group col">
+					<label for="dataFim">Data Fim</label>
+					<!-- Carregado por JS -->
+					<input class="form-control" id="dataFim">					
+				</div>
+			</div>
+		</div>
+		<div class="form-group col-6">
+			<div class="form-row">
+				<div class="form-group col-8 offset-2">
+					<label for="valorServico">Valor do Serviço</label>
+					<input type="text" class="form-control numerico text-right" id="valorServico">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-8 offset-2">
+					<label for="desconto">Desconto</label>
+					<input type="text" class="form-control numerico text-right" id="desconto">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-8 offset-2">
+					<label for="acrescimo">Acréscimo</label>
+					<input type="text" class="form-control numerico text-right" id="acrescimo">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-8 offset-2">
+					<label for="total">Total</label>
+					<input type="text" class="form-control numerico text-right" id="total">
+				</div>
+			</div>
 		
+		</div>
+	</div>
+	
+	<div class="form-row" id="botoesFormularioOs">
+		<div class="form-group col-2 offset-10">
+			<button type="button" class="btn btn-primary w-100" id="botaoSalvar" onclick="return salvarOs()">Salvar</button>
+		</div>
+	</div>
+	
 </form>
 
 <script src="ordemdeservico/index.js"></script>

@@ -1,6 +1,9 @@
 $('#modal').on('shown.bs.modal', function(){
 	buscarPorNome(function(dados){		
 		$('#tabela').dataTable({
+//			DataTables mantém dados de configuração mesmo quando o modal é fechado,
+//			Esta opção deve limpar todos os parâmetros antes de abrir outra instância.
+			destroy: true,
 			data: dados,
 			columns: [
 				{"data": "id"},
@@ -19,3 +22,4 @@ $('#modal').on('shown.bs.modal', function(){
 		});
 	});
 });
+

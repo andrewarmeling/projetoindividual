@@ -1,15 +1,23 @@
+$(document).ready(function(){
+	$(".conteudo").load("buscaros");
+});
+
 $("#clientes").click(function() {
-    $(".conteudo").load("clientes")
-})
+    $(".conteudo").load("clientes");
+});
 
 $("#buscarOS").click(function() {
-    $(".conteudo").load("buscaros")
-})
+    $(".conteudo").load("buscaros");
+});
 
-$("#aberturaDeOS").click(function() {
-    $(".conteudo").load("aberturaDeOs")
-})
+$("#aberturaDeOs").click(function() {
+    $(".conteudo").load("aberturadeos");
+});
 
 $("#ordemDeServico").click(function() {
-    $(".conteudo").load("ordemdeservico")
-})
+    $(".conteudo").load("ordemdeservico");
+});
+
+$("#botaoSair").click(function(){
+	window.location = "../";
+});

@@ -3,7 +3,8 @@ package projetoindividual.ordemDeServico;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import projetoindividual.jdbc.Conexao;
 import projetoindividual.ordemDeServico.OrdemDeServico;
@@ -194,65 +195,114 @@ public class OrdemDeServicoDAO {
 		
 		
 	}
+	
+	public List<OrdemDeServico> buscarOsPorData(String dataInicio, String dataFim) {
+		try {
+			String comando = "SELECT "
+					+ "ordemdeservico.numeroOs, "
+					+ "ordemdeservico.total, "
+					+ "ordemdeservico.modeloEquipamento, "
+					+ "clientes.nome "
+					+ "FROM ordemdeservico "
+					+ "JOIN clientes ON ordemdeservico.idcliente = clientes.idcliente "
+					+ "WHERE dataAbertura > '" + dataInicio
+					+ "' AND dataAbertura < '" + dataFim + "';";
+			
+			Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+			
+			List<OrdemDeServico> ordens = new ArrayList<OrdemDeServico>();
+			
+			while(rs.next()) {
+				OrdemDeServico os = new OrdemDeServico();
+				
+				if (rs.getString("numeroOs") != null) {
+					os.setNumeroOs(rs.getString("numeroOs"));
+				}
+				if (rs.getString("modeloEquipamento") != null) {
+					os.setModeloEquipamento(rs.getString("modeloEquipamento"));
+				} else {
+					os.setModeloEquipamento("Não Especificado");
+				}
+				if (rs.getString("total") != null) {
+					os.setTotal(rs.getString("total"));
+				}
+				if (rs.getString("nome") != null) {
+					os.setNomeCliente(rs.getString("nome"));
+				}
+				
+				ordens.add(os);
+			}
+			
+			return ordens;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	public OrdemDeServico atualizarOs(OrdemDeServico os) {
 		try {
-			String comando = "UPDATE ordemdeservico SET";
+			String comando = "UPDATE ordemdeservico SET ";
 			
 			if (!os.getTipoEquipamento().isEmpty()) {
-				comando += " tipoEquipamento = '" + os.getTipoEquipamento() + "'";
+				comando += "tipoEquipamento = '" + os.getTipoEquipamento() + "', ";
 			}
 			if (!os.getSenhaEquipamento().isEmpty()) {
-				comando += ", senhaEquipamento = '" + os.getSenhaEquipamento() + "'";
+				comando += "senhaEquipamento = '" + os.getSenhaEquipamento() + "', ";
 			}
 			if (!os.getCondicoesEquipamento().isEmpty()) {
-				comando += ", condicoesEquipamento = '" + os.getCondicoesEquipamento() + "'";
+				comando += "condicoesEquipamento = '" + os.getCondicoesEquipamento() + "', ";
 			}
 			if (!os.getMarcaEquipamento().isEmpty()) {
-				comando += ", marcaEquipamento = '" + os.getMarcaEquipamento() + "'";
+				comando += "marcaEquipamento = '" + os.getMarcaEquipamento() + "', ";
 			}
 			if (!os.getCorEquipamento().isEmpty()) {
-				comando += ", corEquipamento = '" + os.getCorEquipamento() + "'";
+				comando += "corEquipamento = '" + os.getCorEquipamento() + "', ";
 			}
 			if (!os.getModeloEquipamento().isEmpty()) {
-				comando += ", modeloEquipamento = '" + os.getModeloEquipamento() + "'";
+				comando += "modeloEquipamento = '" + os.getModeloEquipamento() + "', ";
 			}
 			if (!os.getSerialEquipamento().isEmpty()) {
-				comando += ", serialEquipamento = '" + os.getSerialEquipamento() + "'";
+				comando += "serialEquipamento = '" + os.getSerialEquipamento() + "', ";
 			}
 			if (!os.getSolicitacao().isEmpty()) {
-				comando += ", solicitacao = '" + os.getSolicitacao() + "'";
+				comando += "solicitacao = '" + os.getSolicitacao() + "', ";
 			}
 			if (!os.getObservacoesInternas().isEmpty()) {
-				comando += ", observacoesInternas = '" + os.getObservacoesInternas() + "'";
+				comando += "observacoesInternas = '" + os.getObservacoesInternas() + "', ";
 			}
 			if (!os.getStatusOs().isEmpty()) {
-				comando += ", statusOs = '" + os.getStatusOs() + "'";
+				comando += "statusOs = '" + os.getStatusOs() + "', ";
 			}
 			if (!os.getStatusAprovacao().isEmpty()) {
-				comando += ", statusAprovacao = '" + os.getStatusAprovacao() + "'";
+				comando += "statusAprovacao = '" + os.getStatusAprovacao() + "', ";
 			}
 			if (!os.getPrazoEstimado().isEmpty()) {
-				comando += ", prazoEstimado = '" + os.getPrazoEstimado() + "'";
+				comando += "prazoEstimado = '" + os.getPrazoEstimado() + "', ";
 			}
 			if (!os.getDescricaoServico().isEmpty()) {
-				comando += ", descricaoServico = '" + os.getDescricaoServico() + "'";
+				comando += "descricaoServico = '" + os.getDescricaoServico() + "', ";
 			}
 			if (!os.getDataInicio().isEmpty()) {
-				comando += ", dataInicio = '" + os.getDataInicio() + "'";
+				comando += "dataInicio = '" + os.getDataInicio() + "', ";
 			}
 			if (!os.getDataFim().isEmpty()) {
-				comando += ", dataFim = '" + os.getDataFim() + "'";
+				comando += "dataFim = '" + os.getDataFim() + "', ";
 			}
 			if (!os.getValorServico().isEmpty()) {
-				comando += ", valorServico = '" + os.getValorServico() + "'";
+				comando += "valorServico = '" + os.getValorServico() + "', ";
 			}
 			if (!os.getDesconto().isEmpty()) {
-				comando += ", desconto = '" + os.getDesconto() + "'";
+				comando += "desconto = '" + os.getDesconto() + "', ";
 			}
 			if (!os.getAcrescimo().isEmpty()) {
-				comando += ", acrescimo = '" + os.getAcrescimo() + "'";
+				comando += "acrescimo = '" + os.getAcrescimo() + "', ";
 			}
+			
+//			Gambiarra para garantir o funcionamento da atualização da OS sem um valor e
+//			Para finalizar sempre o statement evitando uma vírgula antes de "where"
+			os.setTotal("0");
 			
 //			Condicionamento do valor da OS
 			if (!os.getValorServico().isEmpty()) {
@@ -265,10 +315,10 @@ public class OrdemDeServicoDAO {
 				}
 				
 				os.setTotal(Integer.toString(total));
-			}
+			} 
 			
 			if (!os.getTotal().isEmpty()) {
-				comando += ", total = '" + os.getTotal() + "'";
+				comando += "total = '" + os.getTotal() + "'";
 			}
 			
 			comando += " WHERE numeroOs = " + os.getNumeroOs() + ";";
