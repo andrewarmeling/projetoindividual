@@ -23,26 +23,27 @@ $(document).ready(function(){
 //	Configura a busca para ser realizada assim que a data for mudada
 	$('#dataInicio').change(function(){
 		if ($('#dataInicio').val().length == 10) {
-			buscarOs();
+			exibirTabela();
 		}
 	});
 	$('#dataFim').change(function(){
 		if ($('#dataFim').val().length == 10) {
-			buscarOs();
+			exibirTabela();
 		}
 	});
 	
 //	Realiza a busca inicial
-	buscarOs();
+	exibirTabela();
 });
 
-function buscarOs(){
+function buscarOs(callback){
 	var datas = coletarDatas();
 	$.ajax({
 		url: '../api/ordemDeServico/porData/' + datas.dataInicio + '/' + datas.dataFim,
 		type: 'GET',
-		success: function (data) {
-			console.log(data)
+		success: function (dados) {
+			console.log("ordens trazidas com sucesso");
+			callback(dados);
 		},
 		error: function() {
 			console.log("erro ao buscar OSs")
@@ -57,4 +58,35 @@ function coletarDatas() {
 	}
 	
 	return datas;
+}
+
+function exibirTabela() {
+	buscarOs(function(dados){		
+		$('#tabela').dataTable({
+//			DataTables mantém dados de configuração mesmo quando o modal é fechado,
+//			Esta opção deve limpar todos os parâmetros antes de abrir outra instância.
+			destroy: true,
+			data: dados,
+			columns: [
+				{"data": "numeroOs"},
+				{"data": "nomeCliente"},
+				{"data": "modeloEquipamento"},
+				{"data": "total"}
+			],
+			searching: true,
+			paging: true,
+			info: false,
+			select: {
+				style: 'single'
+			},
+			language: {
+//				É uma boa ideia ter este pacote de tradução disponível localmente, pois atrasa o carregamento da tabela significantemente
+//				Solução provisória
+				url: "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json"
+			}
+		}).on('select.dt', function(e, dt, type, indexes) {			
+			$('#OSAtual').val((dt.row({selected: true}).data()).numeroOs);
+			$('.conteudo').load("ordemdeservico");			
+		});
+	});
 }
